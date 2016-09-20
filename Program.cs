@@ -8,6 +8,10 @@ namespace DictionariesSlide22
 {
     class Program
     {
+        private static object legs;
+
+        public static bool Bear { get; private set; }
+
         static void Main(string[] args)
         {
             Dictionary<string, int> animals = new Dictionary<string, int>();
@@ -26,6 +30,7 @@ namespace DictionariesSlide22
             }
 
             //An animal that is not in our dictionary.  Added else for false otherwise nothing prints. 
+            //Could be more efficient by adding animals that aren't in the dictionary. 
             if (animals.ContainsKey("Dragon"))
             {
                 Console.WriteLine(true);
@@ -33,7 +38,15 @@ namespace DictionariesSlide22
             else
             {
                 Console.WriteLine(false);
-            }           
+            }
+
+            //New Query
+            
+            if (animals.ContainsKey("Bear"))
+            {
+                int value = animals["Bear"];
+                Console.WriteLine("A Bear has " + value + " legs.");
+            }
         }
     }
 }
